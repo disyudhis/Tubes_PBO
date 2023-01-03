@@ -4,17 +4,66 @@
  */
 package View;
 
+import controller.OrderController;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import model.Order;
+
 /**
  *
  * @author yudhi
  */
 public class Pembayaran extends javax.swing.JFrame {
+    // Deklarasi & instansiasi
+
+    private final DefaultTableModel model = new DefaultTableModel();
+    private OrderController order = new OrderController();
 
     /**
      * Creates new form Pembayaran
      */
     public Pembayaran() {
         initComponents();
+
+        Dimension layar = Toolkit.getDefaultToolkit().getScreenSize();
+
+        // membuat titik x dan y
+        int x = layar.width / 2 - this.getSize().width / 2;
+        int y = layar.height / 2 - this.getSize().height / 2;
+        this.setLocation(x, y);
+
+        // Matiin Resize / Maximize
+        setResizable(false);
+
+        //tabel
+        model.addColumn("id");
+        model.addColumn("Nama");
+        model.addColumn("Jumlah Atasan");
+        model.addColumn("Jumlah Bawahan");
+        model.addColumn("Paket pewangi");
+        model.addColumn("Total Bayar");
+
+        tableOrder.setModel(model);
+
+        populateTable();
+    }
+
+    private void populateTable() {
+        model.setRowCount(0);
+        try {
+            ArrayList<Order> lihat = order.tampilDataOrder();
+            for (Order o : lihat) {
+                Object[] isiData = {o.getId(), o.getNama(), o.getJumlahAtasan(), o.getJumlahBawahan(), o.getPewangi(), o.getTotal()};
+                model.addRow(isiData);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Eksepsi: " + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Exception: " + ex.getMessage());
+        }
     }
 
     /**
@@ -28,20 +77,25 @@ public class Pembayaran extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableOrder = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btTambah = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setText("Keranjang");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableOrder.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -49,10 +103,29 @@ public class Pembayaran extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "No", "Jenis Pakaian", "Jumlah Pakaian", "Paket Pewangi", "Estimasi", "Total Harga"
+                "No", "Nama", "Jumlah Atasan", "Jumlah Bawahan", "Paket pewangi", "Total Bayar"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tableOrder.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableOrderMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                tableOrderMouseExited(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                tableOrderMouseReleased(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tableOrder);
 
         jLabel2.setText("Total : ");
 
@@ -61,10 +134,25 @@ public class Pembayaran extends javax.swing.JFrame {
         jButton1.setText("Bayar");
 
         jButton2.setText("Home");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Edit");
+        btTambah.setText("Tambah");
+        btTambah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btTambahActionPerformed(evt);
+            }
+        });
 
-        jButton4.setText("Hapus");
+        jButton4.setText("Edit");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -74,43 +162,52 @@ public class Pembayaran extends javax.swing.JFrame {
                 .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(468, 468, 468)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(130, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton2)
-                                .addGap(194, 194, 194)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(40, 40, 40)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGap(22, 22, 22))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(31, 31, 31)
+                                .addComponent(jButton2)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(67, 67, 67)
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton3)
+                                .addContainerGap(377, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(121, 121, 121)
+                                .addComponent(btTambah)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton4)
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 645, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(73, 73, 73))))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 723, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jLabel1)
-                    .addComponent(jButton4)
-                    .addComponent(jButton3))
-                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton2)
+                            .addComponent(jButton4)
+                            .addComponent(btTambah))
+                        .addGap(35, 35, 35))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1)
+                        .addGap(27, 27, 27)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
@@ -121,6 +218,68 @@ public class Pembayaran extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Dashboard dashboard = new Dashboard();
+        dashboard.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void tableOrderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableOrderMouseClicked
+        // TODO add your handling code here:
+        btTambah.setText("Ubah");
+    }//GEN-LAST:event_tableOrderMouseClicked
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void btTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTambahActionPerformed
+        if (btTambah.getText().equals("Tambah")) {
+            Pemesanan pemesanan = new Pemesanan();
+            pemesanan.setVisible(true);
+            this.dispose();
+        } else if (btTambah.getText().equals("Ubah")) {
+            int selectedRow = tableOrder.getSelectedRow();
+
+//            String id = model.getValueAt(selectedRow, 0).toString();
+            String nama = model.getValueAt(selectedRow, 1).toString();
+            String jumlahAtasan = model.getValueAt(selectedRow, 2).toString();
+            String jumlahBawahan = model.getValueAt(selectedRow, 3).toString();
+            String pewangi = model.getValueAt(selectedRow, 4).toString();
+            String total = model.getValueAt(selectedRow, 5).toString();
+
+            Pemesanan pemesanan = new Pemesanan();
+            pemesanan.setVisible(true);
+
+            pemesanan.cbCustomer.equals(nama);
+            pemesanan.inpAtasan.setText(jumlahAtasan);
+            pemesanan.inpBawahan.equals(jumlahBawahan);
+            pemesanan.cbPewangi.equals(pewangi);
+            pemesanan.totalbyr.setText(total);
+
+            //barber & totalbayar
+            pemesanan.btnNext.setText("Ubah");
+//            pemesanan.cbCustomer.setEditable(false);
+            pemesanan.totalbyr.setEditable(false);
+
+            this.dispose();
+
+        }
+    }//GEN-LAST:event_btTambahActionPerformed
+
+    private void tableOrderMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableOrderMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tableOrderMouseExited
+
+    private void tableOrderMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableOrderMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tableOrderMouseReleased
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        // TODO add your handling code here:
+        btTambah.setText("Tambah");
+    }//GEN-LAST:event_formMouseClicked
 
     /**
      * @param args the command line arguments
@@ -158,14 +317,14 @@ public class Pembayaran extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btTambah;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tableOrder;
     // End of variables declaration//GEN-END:variables
 }

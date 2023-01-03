@@ -10,7 +10,7 @@ package model;
  */
 public class User {
 
-    private String username, noTelp, email, password, alamat;
+    private String username, noTelp, email, password, alamat, id;
 //    private int id;
 
     public User(String username, String noTelp, String email, String password, String alamat) {
@@ -20,6 +20,15 @@ public class User {
         this.password = password;
         this.alamat = alamat;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+    
 
     public String getAlamat() {
         return alamat;

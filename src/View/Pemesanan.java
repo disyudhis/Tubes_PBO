@@ -12,12 +12,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import model.Order;
 
 /**
  *
  * @author A S U S
  */
 public class Pemesanan extends javax.swing.JFrame {
+
     private OrderController order = new OrderController();
     private final koneksiController koneksi = new koneksiController();
     private Connection con;
@@ -36,10 +39,15 @@ public class Pemesanan extends javax.swing.JFrame {
 
         setResizable(false);
         loadComboNamaUser();
+        cbPewangi.removeAllItems();
+        cbPewangi.addItem("Pilihan");
+        cbPewangi.addItem("Parfum biasa");
+        cbPewangi.addItem("Parfum standar (tahan 2-5 hari)");
+        cbPewangi.addItem("Parfum express (tahan 14 hari)");
     }
-    
-    private void loadComboNamaUser(){
-         // membuka koneksi
+
+    private void loadComboNamaUser() {
+        // membuka koneksi
         con = koneksi.getConnection();
 
         try {
@@ -78,14 +86,16 @@ public class Pemesanan extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        inpBawahan = new javax.swing.JTextField();
+        inpAtasan = new javax.swing.JTextField();
+        btnNext = new javax.swing.JButton();
         cbCustomer = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        cbPewangi = new javax.swing.JComboBox<>();
         jButton2 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        totalbyr = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -107,24 +117,37 @@ public class Pemesanan extends javax.swing.JFrame {
         jLabel6.setText("Jumlah bawahan");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, -1, -1));
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 330, -1));
+        inpBawahan.setBackground(new java.awt.Color(255, 255, 255));
+        inpBawahan.setText("0");
+        getContentPane().add(inpBawahan, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 330, -1));
 
-        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 330, -1));
-
-        jButton1.setBackground(new java.awt.Color(0, 153, 204));
-        jButton1.setText("Next");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        inpAtasan.setBackground(new java.awt.Color(255, 255, 255));
+        inpAtasan.setText("0");
+        inpAtasan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                inpAtasanActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 330, 86, 40));
+        getContentPane().add(inpAtasan, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 330, -1));
+
+        btnNext.setBackground(new java.awt.Color(0, 153, 204));
+        btnNext.setText("Next");
+        btnNext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNextActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 360, 86, 40));
 
         cbCustomer.setBackground(new java.awt.Color(255, 255, 255));
         cbCustomer.setForeground(new java.awt.Color(51, 51, 51));
+        cbCustomer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbCustomerActionPerformed(evt);
+            }
+        });
         getContentPane().add(cbCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, 330, -1));
+        cbCustomer.getAccessibleContext().setAccessibleName("");
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(51, 51, 51));
@@ -136,10 +159,10 @@ public class Pemesanan extends javax.swing.JFrame {
         jLabel10.setText("Paket pewangi");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, -1, -1));
 
-        jComboBox4.setBackground(new java.awt.Color(255, 255, 255));
-        jComboBox4.setForeground(new java.awt.Color(51, 51, 51));
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Parfum biasa", "Parfum standar ( tahan 2-5 hari)", "Parfum express (tahan 14 hari)", " " }));
-        getContentPane().add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 260, 330, -1));
+        cbPewangi.setBackground(new java.awt.Color(255, 255, 255));
+        cbPewangi.setForeground(new java.awt.Color(51, 51, 51));
+        cbPewangi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Parfum biasa", "Parfum standar ( tahan 2-5 hari)", "Parfum express (tahan 14 hari)", " " }));
+        getContentPane().add(cbPewangi, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 260, 330, -1));
 
         jButton2.setBackground(new java.awt.Color(0, 102, 255));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -151,29 +174,98 @@ public class Pemesanan extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel2.setText("Total");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, -1, -1));
+
+        totalbyr.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(totalbyr, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 330, -1));
+
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1000, Short.MAX_VALUE)
+            .addGap(0, 1040, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 530, Short.MAX_VALUE)
+            .addGap(0, 520, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 530));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, 520));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Pembayaran bayar = new Pembayaran();
-        bayar.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
+
+ 
+        String customer = cbCustomer.getSelectedItem().toString();
+        int atasan = Integer.parseInt(inpAtasan.getText());
+        int bawahan = Integer.parseInt(inpBawahan.getText());
+        String pewangi = cbPewangi.getSelectedItem().toString();
+        int biaya = 0;
+
+        if (cbPewangi.getSelectedItem() == "Pilihan") {
+            biaya = 0;
+            totalbyr.setText(String.valueOf(biaya));
+        } else if (pewangi.equals("Parfum biasa")) {
+            biaya = 800 * (atasan + bawahan);
+            totalbyr.setText(String.valueOf(biaya));
+        } else if (pewangi.equals(" Parfum standar ( tahan 2-5 hari)")) {
+            biaya = 1000 * (atasan + bawahan);
+            totalbyr.setText(String.valueOf(biaya));
+        } else if (pewangi.equals("Parfum express (tahan 14 hari)")) {
+            biaya = 1500 * (atasan + bawahan);
+            totalbyr.setText(String.valueOf(biaya));
+        }
+
+        Order o = new Order(customer, pewangi, atasan, bawahan, biaya);
+
+        if (customer.equals("")) {
+            JOptionPane.showMessageDialog(null, "Masukan nama!");
+        } else if (String.valueOf(atasan).equals("") || String.valueOf(atasan).equals(0)) {
+            JOptionPane.showMessageDialog(null, "Ada jumlah atasan? Ketik 0 jika tidak");
+        } else if (String.valueOf(bawahan).equals("") || String.valueOf(bawahan).equals(0)) {
+            JOptionPane.showMessageDialog(null, "Ada jumlah bawahan? Ketik 0 jika tidak");
+        } else if (pewangi.equals("Pilihan")) {
+            JOptionPane.showMessageDialog(null, "Masukan jenis Pewangi!");
+        } else if (btnNext.getText().equals("Next")) {
+            try {
+                if (order.tambahPesanan(o)) {
+                    JOptionPane.showMessageDialog(this, "Berhasil Tambah Data");
+                    Pembayaran pembayaran = new Pembayaran();
+                    pembayaran.setVisible(true);
+                    this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Gagal Tambah Data");
+                }
+            } catch (SQLException ex) {
+                System.out.println("Eksepsi: " + ex.getMessage());
+                JOptionPane.showMessageDialog(null, "Exception: " + ex.getMessage());
+            }
+        } else {
+            try {
+                int jawaban = JOptionPane.showConfirmDialog(this, "Ubah Data " + o.getNama() + "?", "Ubah", JOptionPane.YES_NO_OPTION);
+                if (jawaban == JOptionPane.YES_OPTION) {
+                    if (order.ubahDataBooking(o)) {
+                        JOptionPane.showMessageDialog(this, "Berhasil Ubah Data");
+                        Pembayaran pembayaran = new Pembayaran();
+                        pembayaran.setVisible(true);
+                        this.dispose();
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Gagal Ubah Data");
+                    }
+                }
+            } catch (SQLException ex) {
+                System.out.println("Eksepsi: " + ex.getMessage());
+                JOptionPane.showMessageDialog(null, "Exception: " + ex.getMessage());
+            }
+        }
+    }//GEN-LAST:event_btnNextActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -181,6 +273,14 @@ public class Pemesanan extends javax.swing.JFrame {
         db.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void cbCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCustomerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbCustomerActionPerformed
+
+    private void inpAtasanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inpAtasanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inpAtasanActionPerformed
 
     /**
      * @param args the command line arguments
@@ -218,17 +318,19 @@ public class Pemesanan extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cbCustomer;
-    private javax.swing.JButton jButton1;
+    public javax.swing.JButton btnNext;
+    public javax.swing.JComboBox<String> cbCustomer;
+    public javax.swing.JComboBox<String> cbPewangi;
+    public javax.swing.JTextField inpAtasan;
+    public javax.swing.JTextField inpBawahan;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    public javax.swing.JTextField totalbyr;
     // End of variables declaration//GEN-END:variables
 }

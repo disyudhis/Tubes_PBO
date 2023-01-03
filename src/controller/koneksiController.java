@@ -15,7 +15,7 @@ import java.sql.SQLException;
 public class koneksiController {
  public static Connection getConnection(){
      Connection koneksi = null;
-          String DB_NAME ="jdbc:mysql://localhost:3306/tubes_pbo";
+          String DB_NAME ="jdbc:mysql://localhost:3306/clinz_pbo";
           String DB_USER = "root";
           String DB_PASS = "";
           
