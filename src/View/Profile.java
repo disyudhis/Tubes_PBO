@@ -80,9 +80,8 @@ public class Profile extends javax.swing.JFrame {
         tableUser = new javax.swing.JTable();
         btnHome = new javax.swing.JButton();
         btnUbah = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         btnHapus = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 153));
 
@@ -101,10 +100,10 @@ public class Profile extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(0, 102, 153));
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 102, 153));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Pengguna");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 196, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 90, 196, -1));
 
         jScrollPane1.setBackground(new java.awt.Color(0, 102, 153));
         jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));
@@ -127,7 +126,7 @@ public class Profile extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tableUser);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 509, 312));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 509, 312));
 
         btnHome.setBackground(new java.awt.Color(0, 102, 153));
         btnHome.setForeground(new java.awt.Color(255, 255, 255));
@@ -137,7 +136,7 @@ public class Profile extends javax.swing.JFrame {
                 btnHomeActionPerformed(evt);
             }
         });
-        getContentPane().add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, -1, -1));
+        getContentPane().add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, -1, -1));
 
         btnUbah.setBackground(new java.awt.Color(0, 102, 153));
         btnUbah.setForeground(new java.awt.Color(255, 255, 255));
@@ -147,11 +146,7 @@ public class Profile extends javax.swing.JFrame {
                 btnUbahActionPerformed(evt);
             }
         });
-        getContentPane().add(btnUbah, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 50, -1, -1));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gambar/Desain tanpa judul (12).png"))); // NOI18N
-        jLabel2.setText("jLabel2");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 190, 490, 370));
+        getContentPane().add(btnUbah, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 100, -1, -1));
 
         btnHapus.setBackground(new java.awt.Color(0, 102, 153));
         btnHapus.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -162,22 +157,11 @@ public class Profile extends javax.swing.JFrame {
                 btnHapusActionPerformed(evt);
             }
         });
-        getContentPane().add(btnHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 420, -1, -1));
+        getContentPane().add(btnHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 470, -1, -1));
 
-        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1100, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 590, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 590));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gambar/status2.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-50, -50, 1200, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -288,9 +272,8 @@ public class Profile extends javax.swing.JFrame {
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnUbah;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tableUser;
     // End of variables declaration//GEN-END:variables
