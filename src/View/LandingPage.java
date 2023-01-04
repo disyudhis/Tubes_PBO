@@ -5,6 +5,8 @@
 package View;
 
 import controller.AuthController;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,6 +24,14 @@ public class LandingPage extends javax.swing.JFrame {
     public LandingPage() {
         initComponents();
         
+          Dimension layar = Toolkit.getDefaultToolkit().getScreenSize();
+
+        int x = layar.width / 2 - this.getSize().width / 2;
+        int y = layar.height / 2 - this.getSize().height / 2;
+        this.setLocation(x, y);
+
+        setResizable(false);
+        
     }
 
     /**
@@ -33,61 +43,37 @@ public class LandingPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        loginButt = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
         inpUser = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         registerButt = new javax.swing.JButton();
         inpPass = new javax.swing.JPasswordField();
-        jPanel2 = new javax.swing.JPanel();
+        loginButt = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(212, 110, 42));
-        jLabel1.setText("SOLUSI CERDAS");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, -1, -1));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(212, 110, 42));
-        jLabel2.setText("UNTUK PAKAIAN KOTOR MU");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, -1, -1));
 
         jButton1.setBackground(new java.awt.Color(51, 102, 255));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("MASUK");
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 1000, -1, 41));
 
-        loginButt.setBackground(new java.awt.Color(0, 153, 204));
-        loginButt.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        loginButt.setText("Login");
-        loginButt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginButtActionPerformed(evt);
-            }
-        });
-        getContentPane().add(loginButt, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 400, 110, 30));
-
-        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel3.setText("Username");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, -1, -1));
-
         inpUser.setBackground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(inpUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 290, -1));
+        getContentPane().add(inpUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, 220, 30));
 
-        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Password");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, 110, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 390, 110, -1));
 
-        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Belum punya akun? ");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 480, 160, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 530, 140, -1));
 
         registerButt.setBackground(new java.awt.Color(0, 153, 204));
         registerButt.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -97,16 +83,39 @@ public class LandingPage extends javax.swing.JFrame {
                 registerButtActionPerformed(evt);
             }
         });
-        getContentPane().add(registerButt, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 470, 90, 30));
+        getContentPane().add(registerButt, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 520, 90, 40));
 
         inpPass.setBackground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(inpPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, 290, -1));
+        getContentPane().add(inpPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 382, 220, 30));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 680));
+        loginButt.setBackground(new java.awt.Color(0, 153, 204));
+        loginButt.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        loginButt.setText("Login");
+        loginButt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginButtActionPerformed(evt);
+            }
+        });
+        getContentPane().add(loginButt, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 430, 110, 40));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Username");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gambar/LandingPage.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1200, 680));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void registerButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtActionPerformed
+        // TODO add your handling code here:
+        Register register = new Register();
+        register.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_registerButtActionPerformed
 
     private void loginButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtActionPerformed
         String username = inpUser.getText();
@@ -124,13 +133,6 @@ public class LandingPage extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_loginButtActionPerformed
-
-    private void registerButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtActionPerformed
-        // TODO add your handling code here:
-        Register register = new Register();
-        register.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_registerButtActionPerformed
 
     /**
      * @param args the command line arguments
@@ -172,11 +174,9 @@ public class LandingPage extends javax.swing.JFrame {
     private javax.swing.JTextField inpUser;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JButton loginButt;
     private javax.swing.JButton registerButt;
     // End of variables declaration//GEN-END:variables

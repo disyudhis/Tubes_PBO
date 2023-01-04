@@ -37,53 +37,16 @@ public class Dashboard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        pesanButt = new javax.swing.JButton();
-        statusButt = new javax.swing.JButton();
-        keranjangButt = new javax.swing.JButton();
-        profileButt = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        btnPesan = new javax.swing.JButton();
+        btnStatus = new javax.swing.JButton();
+        btnKeranjang = new javax.swing.JButton();
+        btnProfile = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 204));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel1.setText("Clinz Laundry");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(238, 48, 150, -1));
-
-        pesanButt.setText("Pesan");
-        pesanButt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pesanButtActionPerformed(evt);
-            }
-        });
-        getContentPane().add(pesanButt, new org.netbeans.lib.awtextra.AbsoluteConstraints(238, 137, 143, 31));
-
-        statusButt.setText("Status");
-        statusButt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                statusButtActionPerformed(evt);
-            }
-        });
-        getContentPane().add(statusButt, new org.netbeans.lib.awtextra.AbsoluteConstraints(238, 186, 143, 34));
-
-        keranjangButt.setText("Keranjang");
-        keranjangButt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                keranjangButtActionPerformed(evt);
-            }
-        });
-        getContentPane().add(keranjangButt, new org.netbeans.lib.awtextra.AbsoluteConstraints(238, 238, 143, 39));
-
-        profileButt.setText("Profile");
-        profileButt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                profileButtActionPerformed(evt);
-            }
-        });
-        getContentPane().add(profileButt, new org.netbeans.lib.awtextra.AbsoluteConstraints(238, 295, 143, 35));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -98,51 +61,80 @@ public class Dashboard extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jPanel2.setBackground(new java.awt.Color(0, 102, 153));
+        btnPesan.setBackground(new java.awt.Color(204, 204, 204));
+        btnPesan.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnPesan.setForeground(new java.awt.Color(255, 102, 0));
+        btnPesan.setText("Pesan");
+        btnPesan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesanActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnPesan, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 150, 50));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 660, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
+        btnStatus.setBackground(new java.awt.Color(204, 204, 204));
+        btnStatus.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnStatus.setForeground(new java.awt.Color(255, 102, 0));
+        btnStatus.setText("Status");
+        btnStatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStatusActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 210, 160, 50));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 400));
+        btnKeranjang.setBackground(new java.awt.Color(204, 204, 204));
+        btnKeranjang.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnKeranjang.setForeground(new java.awt.Color(255, 102, 0));
+        btnKeranjang.setText("Keranjang");
+        btnKeranjang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKeranjangActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnKeranjang, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, 150, 50));
+
+        btnProfile.setBackground(new java.awt.Color(204, 204, 204));
+        btnProfile.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnProfile.setForeground(new java.awt.Color(255, 102, 0));
+        btnProfile.setText("Profile");
+        btnProfile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProfileActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 310, 160, 50));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gambar/Dashboard2.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-140, -110, 1440, 810));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void pesanButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesanButtActionPerformed
-        // TODO add your handling code here:
-        Pemesanan pesan = new Pemesanan();
-        pesan.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_pesanButtActionPerformed
+    private void btnPesanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesanActionPerformed
+       Pemesanan pesanan = new Pemesanan();
+       pesanan.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_btnPesanActionPerformed
 
-    private void statusButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statusButtActionPerformed
-        // TODO add your handling code here:
-        Status status = new Status();
-        status.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_statusButtActionPerformed
+    private void btnStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStatusActionPerformed
+       Status status = new Status();
+       status.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_btnStatusActionPerformed
 
-    private void keranjangButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keranjangButtActionPerformed
-        // TODO add your handling code here:
-        Pembayaran bayar = new Pembayaran();
-        bayar.setVisible(true);
+    private void btnProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfileActionPerformed
+        Profile profil = new Profile();
+        profil.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_keranjangButtActionPerformed
+    }//GEN-LAST:event_btnProfileActionPerformed
 
-    private void profileButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileButtActionPerformed
-        // TODO add your handling code here:
-        Profile profile = new Profile();
-        profile.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_profileButtActionPerformed
+    private void btnKeranjangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKeranjangActionPerformed
+       Pembayaran pembayaran = new Pembayaran();
+       pembayaran.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_btnKeranjangActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,12 +172,11 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnKeranjang;
+    private javax.swing.JButton btnPesan;
+    private javax.swing.JButton btnProfile;
+    private javax.swing.JButton btnStatus;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JButton keranjangButt;
-    private javax.swing.JButton pesanButt;
-    private javax.swing.JButton profileButt;
-    private javax.swing.JButton statusButt;
     // End of variables declaration//GEN-END:variables
 }

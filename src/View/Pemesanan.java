@@ -85,20 +85,20 @@ public class Pemesanan extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        cbPewangi = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
+        totalbyr = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         inpBawahan = new javax.swing.JTextField();
         inpAtasan = new javax.swing.JTextField();
         btnNext = new javax.swing.JButton();
         cbCustomer = new javax.swing.JComboBox<>();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        cbPewangi = new javax.swing.JComboBox<>();
-        totalbyr = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -109,24 +109,63 @@ public class Pemesanan extends javax.swing.JFrame {
         setBackground(new java.awt.Color(204, 0, 204));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 153, 255));
-        jLabel1.setText("Pemesanan");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, -1, -1));
+        jLabel9.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Jumlah atasan");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel10.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Paket pewangi");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 370, -1, -1));
+
+        jButton2.setBackground(new java.awt.Color(204, 204, 204));
+        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(0, 102, 255));
+        jButton2.setText("Back");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 190, 90, -1));
+
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Total");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 420, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Pemesanan");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 180, -1, -1));
+
+        cbPewangi.setBackground(new java.awt.Color(255, 255, 255));
+        cbPewangi.setForeground(new java.awt.Color(51, 51, 51));
+        cbPewangi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Parfum biasa", "Parfum standar ( tahan 2-5 hari)", "Parfum express (tahan 14 hari)", " " }));
+        getContentPane().add(cbPewangi, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 370, 330, -1));
+
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Customer");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
+        totalbyr.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(totalbyr, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 420, 330, -1));
+
+        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Jumlah bawahan");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, -1, -1));
 
         inpBawahan.setBackground(new java.awt.Color(255, 255, 255));
         inpBawahan.setText("0");
-        getContentPane().add(inpBawahan, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, 330, -1));
+        getContentPane().add(inpBawahan, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 330, 330, -1));
 
         inpAtasan.setBackground(new java.awt.Color(255, 255, 255));
         inpAtasan.setText("0");
@@ -135,16 +174,18 @@ public class Pemesanan extends javax.swing.JFrame {
                 inpAtasanActionPerformed(evt);
             }
         });
-        getContentPane().add(inpAtasan, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, 330, -1));
+        getContentPane().add(inpAtasan, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 290, 330, -1));
 
-        btnNext.setBackground(new java.awt.Color(0, 153, 204));
+        btnNext.setBackground(new java.awt.Color(204, 204, 204));
+        btnNext.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnNext.setForeground(new java.awt.Color(0, 102, 255));
         btnNext.setText("Next");
         btnNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNextActionPerformed(evt);
             }
         });
-        getContentPane().add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 390, 86, 40));
+        getContentPane().add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 480, 90, 30));
 
         cbCustomer.setBackground(new java.awt.Color(255, 255, 255));
         cbCustomer.setForeground(new java.awt.Color(51, 51, 51));
@@ -153,48 +194,25 @@ public class Pemesanan extends javax.swing.JFrame {
                 cbCustomerActionPerformed(evt);
             }
         });
-        getContentPane().add(cbCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 330, -1));
-        cbCustomer.getAccessibleContext().setAccessibleName("");
+        getContentPane().add(cbCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 250, 330, -1));
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel9.setText("Jumlah atasan");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, -1, -1));
-
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel10.setText("Paket pewangi");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, -1, -1));
-
-        jButton2.setBackground(new java.awt.Color(0, 102, 255));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton2.setText("Back");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, -1, -1));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel2.setText("Total");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, -1, -1));
-
-        cbPewangi.setBackground(new java.awt.Color(255, 255, 255));
-        cbPewangi.setForeground(new java.awt.Color(51, 51, 51));
-        cbPewangi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Parfum biasa", "Parfum standar ( tahan 2-5 hari)", "Parfum express (tahan 14 hari)", " " }));
-        getContentPane().add(cbPewangi, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 290, 330, -1));
-
-        totalbyr.setBackground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(totalbyr, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, 330, -1));
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gambar/ironing.png"))); // NOI18N
-        jLabel4.setText("jLabel4");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 80, 360, -1));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gambar/PemesananCanva.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        Dashboard db = new Dashboard();
+        db.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void inpAtasanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inpAtasanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inpAtasanActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
 
@@ -262,20 +280,9 @@ public class Pemesanan extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnNextActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        Dashboard db = new Dashboard();
-        db.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void cbCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCustomerActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbCustomerActionPerformed
-
-    private void inpAtasanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inpAtasanActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inpAtasanActionPerformed
 
     /**
      * @param args the command line arguments

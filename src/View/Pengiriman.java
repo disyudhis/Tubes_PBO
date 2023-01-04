@@ -4,6 +4,9 @@
  */
 package View;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
 /**
  *
  * @author yudhi
@@ -15,6 +18,16 @@ public class Pengiriman extends javax.swing.JFrame {
      */
     public Pengiriman() {
         initComponents();
+        
+         initComponents();
+        
+          Dimension layar = Toolkit.getDefaultToolkit().getScreenSize();
+
+        int x = layar.width / 2 - this.getSize().width / 2;
+        int y = layar.height / 2 - this.getSize().height / 2;
+        this.setLocation(x, y);
+
+        setResizable(false);
     }
 
     /**
@@ -35,36 +48,37 @@ public class Pengiriman extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         cbEstimasi = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
-        jDatePicker1 = new org.jdatepicker.JDatePicker();
         jButton1 = new javax.swing.JButton();
+        jDatePicker2 = new org.jdatepicker.JDatePicker();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("Pengiriman");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(332, 27, 157, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, 157, -1));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setText("Outlet");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 112, 173, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 173, -1));
 
         cbOutlet.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(cbOutlet, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 116, 374, -1));
+        getContentPane().add(cbOutlet, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 130, 374, -1));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setText("Alamat");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 167, 173, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 173, -1));
 
         inpAlamat.setColumns(20);
         inpAlamat.setRows(5);
         jScrollPane1.setViewportView(inpAlamat);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 167, 374, 120));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 180, 374, 120));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setText("Estimasi");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 312, 173, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 173, -1));
 
         cbEstimasi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cbEstimasi.addActionListener(new java.awt.event.ActionListener() {
@@ -72,15 +86,19 @@ public class Pengiriman extends javax.swing.JFrame {
                 cbEstimasiActionPerformed(evt);
             }
         });
-        getContentPane().add(cbEstimasi, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 316, 374, -1));
+        getContentPane().add(cbEstimasi, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, 374, -1));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel5.setText("Tanggal Pengambilan");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 378, -1, -1));
-        getContentPane().add(jDatePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 383, 374, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 390, -1, -1));
 
         jButton1.setText("Lanjut");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(361, 457, 149, 37));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 470, 149, 37));
+        getContentPane().add(jDatePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 390, 370, -1));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gambar/LEAVE CLEANING (18).png"))); // NOI18N
+        jLabel6.setText("jLabel6");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -60, 1200, 790));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -129,12 +147,13 @@ public class Pengiriman extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbOutlet;
     private javax.swing.JTextArea inpAlamat;
     private javax.swing.JButton jButton1;
-    private org.jdatepicker.JDatePicker jDatePicker1;
+    private org.jdatepicker.JDatePicker jDatePicker2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
