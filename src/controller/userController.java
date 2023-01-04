@@ -45,6 +45,31 @@ public class userController {
         }
         return cekUser;
     }
+    
+    public String cekPassword(String username) {
+        PreparedStatement ps;
+        ResultSet rs;
+        String pass = "";
+
+        String queryCek = "SELECT password FROM users WHERE username = ?";
+
+        try {
+            ps = koneksi.getConnection().prepareStatement(queryCek);
+            ps.setString(1, username);
+//            ps.setString(2, password);
+
+            //result set
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                pass = rs.getString("password");
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return pass;
+    }
 
     //ubah data
     public boolean ubahData(User user) throws SQLException {
@@ -53,7 +78,7 @@ public class userController {
         con = koneksi.getConnection();
 
         // Menyiapkan database / memanipulasi data untuk dikiirm kedatabase untuk dieksekusi
-        String kueri = "UPDATE orders SET password=?, noTelp=?, email=?, alamat=? WHERE username=?";
+        String kueri = "UPDATE users SET password=?, noTelp=?, email=?, alamat=? WHERE username=?";
         PreparedStatement ps = con.prepareStatement(kueri);
 //        ps.setInt(6, order.getId());
         ps.setString(5, user.getUsername());
@@ -135,4 +160,24 @@ public class userController {
         return rowAffected == 1;
     }
 
+    public boolean hapusUser(String id) throws SQLException {
+
+        // membuka koneksi ke database
+        con = koneksiController.getConnection();
+
+        // Menyiapkan database / memanipulasi data untuk dikiirm kedatabase untuk dieksekusi
+        String kueri = "DELETE FROM users WHERE id = ?";
+        PreparedStatement ps = con.prepareStatement(kueri);
+        ps.setString(1, id);
+
+        // mengeksekusi query
+        int rowAffected = ps.executeUpdate();
+
+        // menutup preparedstatement & koneksi
+        ps.close();
+        con.close();
+
+        // mengembalikan nilai data untuk dirubah ke database mysql
+        return rowAffected == 1;
+    }
 }

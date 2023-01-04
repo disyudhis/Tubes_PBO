@@ -28,16 +28,15 @@ public class Pengiriman extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbOutlet = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        inpAlamat = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        cbEstimasi = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         jDatePicker1 = new org.jdatepicker.JDatePicker();
         jButton1 = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -50,16 +49,16 @@ public class Pengiriman extends javax.swing.JFrame {
         jLabel2.setText("Outlet");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 112, 173, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 116, 374, -1));
+        cbOutlet.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(cbOutlet, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 116, 374, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setText("Alamat");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 167, 173, -1));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        inpAlamat.setColumns(20);
+        inpAlamat.setRows(5);
+        jScrollPane1.setViewportView(inpAlamat);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 167, 374, 120));
 
@@ -67,8 +66,13 @@ public class Pengiriman extends javax.swing.JFrame {
         jLabel4.setText("Estimasi");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 312, 173, -1));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 316, 374, -1));
+        cbEstimasi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbEstimasi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbEstimasiActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cbEstimasi, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 316, 374, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel5.setText("Tanggal Pengambilan");
@@ -78,23 +82,12 @@ public class Pengiriman extends javax.swing.JFrame {
         jButton1.setText("Lanjut");
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(361, 457, 149, 37));
 
-        jPanel3.setBackground(new java.awt.Color(0, 153, 204));
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 780, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 520, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 520));
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cbEstimasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEstimasiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbEstimasiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -132,17 +125,16 @@ public class Pengiriman extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cbEstimasi;
+    private javax.swing.JComboBox<String> cbOutlet;
+    private javax.swing.JTextArea inpAlamat;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private org.jdatepicker.JDatePicker jDatePicker1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }

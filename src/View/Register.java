@@ -180,7 +180,7 @@ public class Register extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "password harus diisi");
         } else if (alamat.equals("")) {
             JOptionPane.showMessageDialog(rootPane, "alamat harus diisi");
-        }else if(btnDaftar.getText().equals("Daftar")) {
+        } else if (btnDaftar.getText().equals("Daftar")) {
             try {
                 if (uc.tambahData(user)) {
                     JOptionPane.showMessageDialog(this, "Berhasil Tambah Data");
@@ -190,6 +190,23 @@ public class Register extends javax.swing.JFrame {
 //                    populateTable();
                 } else {
                     JOptionPane.showMessageDialog(this, "Gagal Tambah Data");
+                }
+            } catch (SQLException ex) {
+                System.out.println("Eksepsi: " + ex.getMessage());
+                JOptionPane.showMessageDialog(null, "Exception: " + ex.getMessage());
+            }
+        } else {
+            try {
+                int jawaban = JOptionPane.showConfirmDialog(this, "Ubah Data " + user.getUsername() + "?", "Ubah", JOptionPane.YES_NO_OPTION);
+                if (jawaban == JOptionPane.YES_OPTION) {
+                    if (uc.ubahData(user)) {
+                        JOptionPane.showMessageDialog(this, "Berhasil Ubah Data");
+                        Profile profile = new Profile();
+                        profile.setVisible(true);
+                        this.dispose();
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Gagal Ubah Data");
+                    }
                 }
             } catch (SQLException ex) {
                 System.out.println("Eksepsi: " + ex.getMessage());

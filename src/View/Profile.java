@@ -46,6 +46,7 @@ public class Profile extends javax.swing.JFrame {
 
         tableUser.setModel(model);
         btnUbah.setEnabled(false);
+        btnHapus.setEnabled(false);
         populateTable();
     }
 
@@ -80,8 +81,8 @@ public class Profile extends javax.swing.JFrame {
         btnHome = new javax.swing.JButton();
         btnUbah = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        btnHapus = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jButton3 = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 153));
 
@@ -140,45 +141,40 @@ public class Profile extends javax.swing.JFrame {
 
         btnUbah.setBackground(new java.awt.Color(0, 102, 153));
         btnUbah.setForeground(new java.awt.Color(255, 255, 255));
-        btnUbah.setText("Ubah");
+        btnUbah.setText("Ubah Alamat");
         btnUbah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUbahActionPerformed(evt);
             }
         });
-        getContentPane().add(btnUbah, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 50, -1, -1));
+        getContentPane().add(btnUbah, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 50, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gambar/Desain tanpa judul (12).png"))); // NOI18N
         jLabel2.setText("jLabel2");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 190, 490, 370));
 
-        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
-
-        jButton3.setBackground(new java.awt.Color(0, 102, 153));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Hapus");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnHapus.setBackground(new java.awt.Color(0, 102, 153));
+        btnHapus.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnHapus.setForeground(new java.awt.Color(255, 255, 255));
+        btnHapus.setText("Hapus");
+        btnHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnHapusActionPerformed(evt);
             }
         });
+        getContentPane().add(btnHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 420, -1, -1));
+
+        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(240, 240, 240)
-                .addComponent(jButton3)
-                .addContainerGap(780, Short.MAX_VALUE))
+            .addGap(0, 1100, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(428, Short.MAX_VALUE)
-                .addComponent(jButton3)
-                .addGap(131, 131, 131))
+            .addGap(0, 590, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 590));
@@ -192,32 +188,55 @@ public class Profile extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnHomeActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+        int selectedRow = tableUser.getSelectedRow();
+        String id = model.getValueAt(selectedRow, 0).toString();
+        int jawaban = JOptionPane.showConfirmDialog(this, "Hapus Data " + id + "?", "Hapus", JOptionPane.YES_NO_OPTION);
+        if (jawaban == JOptionPane.YES_OPTION) {
+            //hapus
+            try {
+                if (user.hapusUser(id)) {
+                    JOptionPane.showMessageDialog(this, "Berhasil Hapus");
+                    populateTable();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Gagal Hapus");
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Eksepsi: " + e.getMessage());
+            }
+
+        }
+    }//GEN-LAST:event_btnHapusActionPerformed
 
     private void btnUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahActionPerformed
         // TODO add your handling code here:
-        if (btnUbah.getText().equals("Ubah")) {
+        if (btnUbah.getText().equals("Ubah Alamat")) {
             int selectedRow = tableUser.getSelectedRow();
 
+//            String id = model.getValueAt(selectedRow, 0).toString();
             String username = model.getValueAt(selectedRow, 1).toString();
             String noTelp = model.getValueAt(selectedRow, 2).toString();
             String email = model.getValueAt(selectedRow, 3).toString();
             String alamat = model.getValueAt(selectedRow, 4).toString();
-            String password = model.getValueAt(selectedRow, 5).toString();
+//            String password = model.getValueAt(selectedRow, 5).toString();
+            String password = user.cekPassword(username);
 
             Register register = new Register();
             register.setVisible(true);
 
             register.inpUser.setText(username);
+            register.inpUser.setEnabled(false);
             register.inpNoTelp.setText(noTelp);
+            register.inpNoTelp.setEnabled(false);
             register.inpEmail.setText(email);
+            register.inpEmail.setEnabled(false);
             register.inpAlamat.setText(alamat);
             register.inpPass.setText(password);
+            register.inpPass.setEnabled(false);
 
             register.btnDaftar.setText("Ubah");
-            
+
             this.dispose();
         }
 
@@ -226,6 +245,7 @@ public class Profile extends javax.swing.JFrame {
     private void tableUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableUserMouseClicked
         // TODO add your handling code here:
         btnUbah.setEnabled(true);
+        btnHapus.setEnabled(true);
     }//GEN-LAST:event_tableUserMouseClicked
 
     /**
@@ -264,9 +284,9 @@ public class Profile extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnHapus;
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnUbah;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
