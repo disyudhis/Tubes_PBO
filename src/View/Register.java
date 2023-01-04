@@ -60,6 +60,7 @@ public class Register extends javax.swing.JFrame {
         inpAlamat = new javax.swing.JTextArea();
         jLabel9 = new javax.swing.JLabel();
         inpPass = new javax.swing.JPasswordField();
+        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -70,7 +71,7 @@ public class Register extends javax.swing.JFrame {
         labelJudul.setForeground(new java.awt.Color(0, 102, 153));
         labelJudul.setText("Daftar ");
         labelJudul.setToolTipText("");
-        getContentPane().add(labelJudul, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, 120, 30));
+        getContentPane().add(labelJudul, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, 120, 30));
 
         inpNoTelp.setBackground(new java.awt.Color(253, 253, 253));
         inpNoTelp.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -78,31 +79,31 @@ public class Register extends javax.swing.JFrame {
                 inpNoTelpKeyTyped(evt);
             }
         });
-        getContentPane().add(inpNoTelp, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 190, 310, 20));
+        getContentPane().add(inpNoTelp, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 200, 310, 20));
 
         inpUser.setBackground(new java.awt.Color(253, 253, 253));
-        getContentPane().add(inpUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 140, 310, 20));
+        getContentPane().add(inpUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 150, 310, 20));
 
         inpEmail.setBackground(new java.awt.Color(253, 253, 253));
-        getContentPane().add(inpEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, 310, 20));
+        getContentPane().add(inpEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, 310, 20));
 
         jLabel7.setBackground(new java.awt.Color(109, 100, 100));
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(51, 51, 51));
         jLabel7.setText("Username");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 140, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, -1, -1));
 
         jLabel4.setBackground(new java.awt.Color(109, 100, 100));
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setText("No telp");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, -1, -1));
 
         jLabel8.setBackground(new java.awt.Color(109, 100, 100));
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(51, 51, 51));
         jLabel8.setText("Email");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, -1, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, -1, -1));
 
         btnDaftar.setBackground(new java.awt.Color(0, 102, 153));
         btnDaftar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -113,25 +114,29 @@ public class Register extends javax.swing.JFrame {
                 btnDaftarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnDaftar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 450, 120, 30));
+        getContentPane().add(btnDaftar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 460, 120, 30));
 
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("Password");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 390, 210, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 400, 210, -1));
 
         inpAlamat.setBackground(new java.awt.Color(255, 255, 255));
         inpAlamat.setColumns(20);
         inpAlamat.setRows(5);
         jScrollPane2.setViewportView(inpAlamat);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 290, 310, -1));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, 310, -1));
 
         jLabel9.setForeground(new java.awt.Color(51, 51, 51));
         jLabel9.setText("Alamat");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 290, 210, -1));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, 210, -1));
 
         inpPass.setBackground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(inpPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 390, 310, -1));
+        getContentPane().add(inpPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 400, 310, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gambar/washcloth.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 370, 460, -1));
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 780));
@@ -240,12 +245,13 @@ public class Register extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnDaftar;
-    private javax.swing.JTextArea inpAlamat;
-    private java.awt.TextField inpEmail;
-    private java.awt.TextField inpNoTelp;
-    private javax.swing.JPasswordField inpPass;
-    private java.awt.TextField inpUser;
+    public javax.swing.JButton btnDaftar;
+    public javax.swing.JTextArea inpAlamat;
+    public java.awt.TextField inpEmail;
+    public java.awt.TextField inpNoTelp;
+    public javax.swing.JPasswordField inpPass;
+    public java.awt.TextField inpUser;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;

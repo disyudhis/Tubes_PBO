@@ -47,17 +47,21 @@ public class userController {
     }
 
     //ubah data
-    public boolean ubahData(User data) throws SQLException {
+    public boolean ubahData(User user) throws SQLException {
 
         // membuka koneksi ke database
         con = koneksi.getConnection();
 
         // Menyiapkan database / memanipulasi data untuk dikiirm kedatabase untuk dieksekusi
-        String kueri = "UPDATE data SET nama=?, umur=?, alamat=? WHERE username=?";
+        String kueri = "UPDATE orders SET password=?, noTelp=?, email=?, alamat=? WHERE username=?";
         PreparedStatement ps = con.prepareStatement(kueri);
-        ps.setString(1, data.getUsername());
-        ps.setString(2, data.getNoTelp());
-        ps.setString(3, data.getEmail());
+//        ps.setInt(6, order.getId());
+        ps.setString(5, user.getUsername());
+        ps.setString(1, user.getPassword());
+        ps.setString(2, user.getNoTelp());
+        ps.setString(3, user.getEmail());
+        ps.setString(4, user.getAlamat());
+
 
         // mengeksekusi query
         int rowAffected = ps.executeUpdate();
@@ -78,7 +82,7 @@ public class userController {
         con = koneksi.getConnection();
 
         // membuat query untuk tampil data biodata
-        String kueri = "SELECT * FROM data";
+        String kueri = "SELECT * FROM users";
         PreparedStatement ps = con.prepareStatement(kueri);
 
         // mengeksekusi query
@@ -90,10 +94,10 @@ public class userController {
             String username = rs.getString("username");
             String noTelp = rs.getString("noTelp");
             String email = rs.getString("email");
-            String password = rs.getString("password");
+//            String password = rs.getString("password");
             String alamat = rs.getString("alamat");
 
-            User listdata = new User(username, noTelp, email, password, alamat);
+            User listdata = new User(id, username, noTelp, email, alamat);
             tampil.add(listdata);
         }
 

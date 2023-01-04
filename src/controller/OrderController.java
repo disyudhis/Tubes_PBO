@@ -26,6 +26,7 @@ public class OrderController {
 
         // membuat query untuk tambah data
         String kueri = "INSERT INTO orders (nama, jumlahAtasan, jumlahBawahan, pewangi, total) VALUES (?,?,?,?,?)";
+//        String kueriId = "SELECT id"
 
         // Menyiapkan database / memanipulasi data untuk dikiirm kedatabase untuk dieksekusi
         PreparedStatement ps = con.prepareStatement(kueri);
@@ -53,14 +54,14 @@ public class OrderController {
         con = koneksi.getConnection();
 
         // Menyiapkan database / memanipulasi data untuk dikiirm kedatabase untuk dieksekusi
-        String kueri = "UPDATE orders SET nama=?, jumlahAtasan=?, jumlahBawahan=?, pewangi=?, total=? WHERE id=?";
+        String kueri = "UPDATE orders SET jumlahAtasan=?, jumlahBawahan=?, pewangi=?, total=? WHERE nama=?";
         PreparedStatement ps = con.prepareStatement(kueri);
-        ps.setInt(6, order.getId());
-        ps.setString(1, order.getNama());
-        ps.setInt(2, order.getJumlahAtasan());
-        ps.setInt(3, order.getJumlahBawahan());
-        ps.setString(4, order.getPewangi());
-        ps.setInt(5, order.getTotal());
+//        ps.setInt(6, order.getId());
+        ps.setString(5, order.getNama());
+        ps.setInt(1, order.getJumlahAtasan());
+        ps.setInt(2, order.getJumlahBawahan());
+        ps.setString(3, order.getPewangi());
+        ps.setInt(4, order.getTotal());
 
         // mengeksekusi query
         int rowAffected = ps.executeUpdate();
@@ -80,7 +81,7 @@ public class OrderController {
         con = koneksiController.getConnection();
 
         // Menyiapkan database / memanipulasi data untuk dikiirm kedatabase untuk dieksekusi
-        String kueri = "DELETE FROM booking WHERE idbooking = ?";
+        String kueri = "DELETE FROM orders WHERE id = ?";
         PreparedStatement ps = con.prepareStatement(kueri);
         ps.setString(1, id);
 

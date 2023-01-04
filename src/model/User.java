@@ -10,8 +10,8 @@ package model;
  */
 public class User {
 
-    private String username, noTelp, email, password, alamat, id;
-//    private int id;
+    private String username, noTelp, email, password, alamat;
+    private int id;
 
     public User(String username, String noTelp, String email, String password, String alamat) {
         this.username = username;
@@ -21,14 +21,22 @@ public class User {
         this.alamat = alamat;
     }
 
-    public String getId() {
+    public User(int id, String username, String noTelp, String email, String alamat) {
+        this.id = id;
+        this.username = username;
+        this.noTelp = noTelp;
+        this.email = email;
+//        this.password = password;
+        this.alamat = alamat;
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
-    
 
     public String getAlamat() {
         return alamat;
@@ -37,7 +45,6 @@ public class User {
     public void setAlamat(String alamat) {
         this.alamat = alamat;
     }
-    
 
     public String getUsername() {
         return username;
@@ -70,7 +77,5 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-    
-    
 
 }
