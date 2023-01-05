@@ -29,6 +29,10 @@ public class User {
 //        this.password = password;
         this.alamat = alamat;
     }
+    
+    public User(String username){
+        this.username = username;
+    }
 
     public int getId() {
         return id;

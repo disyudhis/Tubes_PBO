@@ -4,14 +4,22 @@
  */
 package View;
 
+import controller.ShipmentController;
+import controller.StatusController;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author yudhi
  */
 public class Status extends javax.swing.JFrame {
+    private final DefaultTableModel model = new DefaultTableModel();
+    private StatusController status = new StatusController();
 
     /**
      * Creates new form Status
@@ -26,7 +34,26 @@ public class Status extends javax.swing.JFrame {
         this.setLocation(x, y);
 
         setResizable(false);
+        populateTable();
+         
     }
+    
+    private void populateTable() {
+        model.setRowCount(0);
+        try {
+            ArrayList<model.Status> lihat = status.tampilDataStatus();
+            for (model.Status s : lihat) {
+                Object[] isiData = {s.getNo(), s.getNama(), s.getJumlahAtasan(), s.getJumlahBawahan(), s.getEstimate()};
+                model.addRow(isiData);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Eksepsi: " + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Exception: " + ex.getMessage());
+        }
+    }
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -58,13 +85,13 @@ public class Status extends javax.swing.JFrame {
         jTable1.setBackground(new java.awt.Color(255, 255, 255));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "No", "Jenis Pakaian", "Jumlah Pakaian", "Status", "Estimasi"
+                "No", "Nama", "Jumlah Atasan", "Jumlah Bawahan", "Status", "Estimasi"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -142,6 +169,7 @@ public class Status extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Status().setVisible(true);
+                
             }
         });
     }

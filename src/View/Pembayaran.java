@@ -9,6 +9,8 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Order;
@@ -19,7 +21,7 @@ import model.Order;
  */
 public class Pembayaran extends javax.swing.JFrame {
     // Deklarasi & instansiasi
-
+    
     private final DefaultTableModel model = new DefaultTableModel();
     private OrderController order = new OrderController();
 
@@ -80,7 +82,7 @@ public class Pembayaran extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableOrder = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        btnBayar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         btTambah = new javax.swing.JButton();
         btnHapus = new javax.swing.JButton();
@@ -148,11 +150,16 @@ public class Pembayaran extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 723, 277));
 
-        jButton1.setBackground(new java.awt.Color(0, 153, 255));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Bayar");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 520, 110, 36));
+        btnBayar.setBackground(new java.awt.Color(0, 153, 255));
+        btnBayar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnBayar.setForeground(new java.awt.Color(255, 255, 255));
+        btnBayar.setText("Bayar");
+        btnBayar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBayarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBayar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 520, 170, 36));
 
         jButton2.setBackground(new java.awt.Color(0, 153, 255));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -204,6 +211,7 @@ public class Pembayaran extends javax.swing.JFrame {
         // TODO add your handling code here:
         btTambah.setText("Ubah");
         btnHapus.setEnabled(true);
+        btnBayar.setText("Bayar Sekarang!");
     }//GEN-LAST:event_tableOrderMouseClicked
 
     private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
@@ -275,6 +283,27 @@ public class Pembayaran extends javax.swing.JFrame {
         btTambah.setText("Tambah");
     }//GEN-LAST:event_formMouseClicked
 
+    private void btnBayarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBayarActionPerformed
+        if (btnBayar.getText().equals("Bayar Sekarang!")) {
+            int selectedRow = tableOrder.getSelectedRow();
+            String orderId = model.getValueAt(selectedRow, 0).toString();
+            
+            Pengiriman pengiriman = null;
+            try {
+                pengiriman = new Pengiriman();
+            } catch (SQLException ex) {
+                Logger.getLogger(Pembayaran.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            pengiriman.setId(Integer.parseInt(orderId));
+            
+            pengiriman.setVisible(true);
+            this.dispose();
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Silahkan Pilih Pemesanan yg ingin dibayar");
+        }
+    }//GEN-LAST:event_btnBayarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -312,8 +341,8 @@ public class Pembayaran extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btTambah;
+    private javax.swing.JButton btnBayar;
     private javax.swing.JButton btnHapus;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

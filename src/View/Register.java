@@ -47,99 +47,84 @@ public class Register extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        labelJudul = new javax.swing.JLabel();
         inpNoTelp = new java.awt.TextField();
         inpUser = new java.awt.TextField();
-        inpEmail = new java.awt.TextField();
         jLabel7 = new javax.swing.JLabel();
+        inpEmail = new java.awt.TextField();
+        btnDaftar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        btnDaftar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        inpAlamat = new javax.swing.JTextArea();
         jLabel9 = new javax.swing.JLabel();
         inpPass = new javax.swing.JPasswordField();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        inpAlamat = new javax.swing.JTextArea();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 255, 255));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        labelJudul.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        labelJudul.setForeground(new java.awt.Color(0, 102, 153));
-        labelJudul.setText("Daftar ");
-        labelJudul.setToolTipText("");
-        getContentPane().add(labelJudul, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, 120, 30));
+        inpNoTelp.setBackground(new java.awt.Color(204, 204, 204));
+        getContentPane().add(inpNoTelp, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 300, 310, 20));
 
-        inpNoTelp.setBackground(new java.awt.Color(253, 253, 253));
-        inpNoTelp.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                inpNoTelpKeyTyped(evt);
-            }
-        });
-        getContentPane().add(inpNoTelp, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 200, 310, 20));
-
-        inpUser.setBackground(new java.awt.Color(253, 253, 253));
-        getContentPane().add(inpUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 150, 310, 20));
-
-        inpEmail.setBackground(new java.awt.Color(253, 253, 253));
-        getContentPane().add(inpEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, 310, 20));
+        inpUser.setBackground(new java.awt.Color(204, 204, 204));
+        getContentPane().add(inpUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, 310, 20));
 
         jLabel7.setBackground(new java.awt.Color(109, 100, 100));
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 153, 255));
         jLabel7.setText("Username");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, -1, -1));
 
-        jLabel4.setBackground(new java.awt.Color(109, 100, 100));
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel4.setText("No telp");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, -1, -1));
-
-        jLabel8.setBackground(new java.awt.Color(109, 100, 100));
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel8.setText("Email");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, -1, -1));
+        inpEmail.setBackground(new java.awt.Color(204, 204, 204));
+        getContentPane().add(inpEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 350, 310, 20));
 
         btnDaftar.setBackground(new java.awt.Color(0, 102, 153));
-        btnDaftar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnDaftar.setForeground(new java.awt.Color(204, 204, 204));
+        btnDaftar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnDaftar.setForeground(new java.awt.Color(255, 255, 255));
         btnDaftar.setText("Daftar");
         btnDaftar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDaftarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnDaftar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 460, 120, 30));
+        getContentPane().add(btnDaftar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 560, 120, 40));
 
-        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel4.setBackground(new java.awt.Color(109, 100, 100));
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 153, 255));
+        jLabel4.setText("No telp");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, -1, -1));
+
+        jLabel8.setBackground(new java.awt.Color(109, 100, 100));
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 153, 255));
+        jLabel8.setText("Email");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 350, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 153, 255));
         jLabel2.setText("Password");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 400, 210, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 500, 210, -1));
 
-        inpAlamat.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 153, 255));
+        jLabel9.setText("Alamat");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 400, 210, -1));
+
+        inpPass.setBackground(new java.awt.Color(204, 204, 204));
+        getContentPane().add(inpPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 500, 310, -1));
+
+        inpAlamat.setBackground(new java.awt.Color(204, 204, 204));
         inpAlamat.setColumns(20);
         inpAlamat.setRows(5);
-        jScrollPane2.setViewportView(inpAlamat);
+        jScrollPane1.setViewportView(inpAlamat);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, 310, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 390, 310, -1));
 
-        jLabel9.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel9.setText("Alamat");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, 210, -1));
-
-        inpPass.setBackground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(inpPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 400, 310, -1));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gambar/washcloth.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 370, 460, -1));
-
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 780));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gambar/REGISTER.png"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 780));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -181,19 +166,24 @@ public class Register extends javax.swing.JFrame {
         } else if (alamat.equals("")) {
             JOptionPane.showMessageDialog(rootPane, "alamat harus diisi");
         } else if (btnDaftar.getText().equals("Daftar")) {
-            try {
-                if (uc.tambahData(user)) {
-                    JOptionPane.showMessageDialog(this, "Berhasil Tambah Data");
-                    Dashboard dashboard = new Dashboard();
-                    dashboard.setVisible(true);
-                    this.dispose();
+            if (uc.cekUsername(nama)) {
+                JOptionPane.showMessageDialog(rootPane, "Username Tidak Tersedia");
+            } else {
+
+                try {
+                    if (uc.tambahData(user)) {
+                        JOptionPane.showMessageDialog(this, "Berhasil Tambah Data");
+                        Dashboard dashboard = new Dashboard();
+                        dashboard.setVisible(true);
+                        this.dispose();
 //                    populateTable();
-                } else {
-                    JOptionPane.showMessageDialog(this, "Gagal Tambah Data");
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Gagal Tambah Data");
+                    }
+                } catch (SQLException ex) {
+                    System.out.println("Eksepsi: " + ex.getMessage());
+                    JOptionPane.showMessageDialog(null, "Exception: " + ex.getMessage());
                 }
-            } catch (SQLException ex) {
-                System.out.println("Eksepsi: " + ex.getMessage());
-                JOptionPane.showMessageDialog(null, "Exception: " + ex.getMessage());
             }
         } else {
             try {
@@ -213,6 +203,7 @@ public class Register extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Exception: " + ex.getMessage());
             }
         }
+
 //       
     }//GEN-LAST:event_btnDaftarActionPerformed
 
@@ -268,14 +259,12 @@ public class Register extends javax.swing.JFrame {
     public java.awt.TextField inpNoTelp;
     public javax.swing.JPasswordField inpPass;
     public java.awt.TextField inpUser;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel labelJudul;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
