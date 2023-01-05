@@ -12,38 +12,51 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import model.Shipment;
 
 /**
  *
  * @author yudhi
  */
 public class Status extends javax.swing.JFrame {
+
     private final DefaultTableModel model = new DefaultTableModel();
-    private StatusController status = new StatusController();
+//    private StatusController status = new StatusController();
+    private ShipmentController shipment = new ShipmentController();
 
     /**
      * Creates new form Status
      */
     public Status() {
         initComponents();
-        
-          Dimension layar = Toolkit.getDefaultToolkit().getScreenSize();
+
+        Dimension layar = Toolkit.getDefaultToolkit().getScreenSize();
 
         int x = layar.width / 2 - this.getSize().width / 2;
         int y = layar.height / 2 - this.getSize().height / 2;
         this.setLocation(x, y);
 
         setResizable(false);
+
+        //tabel
+        model.addColumn("No");
+        model.addColumn("Id Pesanan");
+        model.addColumn("Alamat");
+        model.addColumn("Daerah");
+        model.addColumn("Estimasi");
+
+        tableStatus.setModel(model);
+
         populateTable();
-         
+
     }
-    
+
     private void populateTable() {
         model.setRowCount(0);
         try {
-            ArrayList<model.Status> lihat = status.tampilDataStatus();
-            for (model.Status s : lihat) {
-                Object[] isiData = {s.getNo(), s.getNama(), s.getJumlahAtasan(), s.getJumlahBawahan(), s.getEstimate()};
+            ArrayList<Shipment> lihat = shipment.tampilDataStatus();
+            for (Shipment s : lihat) {
+                Object[] isiData = {s.getId(), s.getOrder_id(), s.getAlamat(), s.getRegion(), s.getEstimate()};
                 model.addRow(isiData);
             }
         } catch (SQLException ex) {
@@ -51,9 +64,6 @@ public class Status extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Exception: " + ex.getMessage());
         }
     }
-    
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -67,7 +77,7 @@ public class Status extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableStatus = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -82,19 +92,16 @@ public class Status extends javax.swing.JFrame {
         jLabel1.setText("Status Pakaian");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 209, -1));
 
-        jTable1.setBackground(new java.awt.Color(255, 255, 255));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableStatus.setBackground(new java.awt.Color(255, 255, 255));
+        tableStatus.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
-                "No", "Nama", "Jumlah Atasan", "Jumlah Bawahan", "Status", "Estimasi"
+                "No", "Id Pesanan", "Alamat", "Region", "Estimate"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tableStatus);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 640, 410));
 
@@ -122,7 +129,7 @@ public class Status extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gambar/status2.png"))); // NOI18N
         jLabel2.setText("jLabel2");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -120, 1200, 910));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1200, 680));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -136,6 +143,9 @@ public class Status extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        Dashboard dashboard = new Dashboard();
+        dashboard.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -169,7 +179,7 @@ public class Status extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Status().setVisible(true);
-                
+
             }
         });
     }
@@ -181,6 +191,6 @@ public class Status extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tableStatus;
     // End of variables declaration//GEN-END:variables
 }

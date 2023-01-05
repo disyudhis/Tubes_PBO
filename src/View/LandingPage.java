@@ -43,7 +43,6 @@ public class LandingPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
         inpUser = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -56,13 +55,6 @@ public class LandingPage extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jButton1.setBackground(new java.awt.Color(51, 102, 255));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("MASUK");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 1000, -1, 41));
-
-        inpUser.setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().add(inpUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, 220, 30));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -84,8 +76,6 @@ public class LandingPage extends javax.swing.JFrame {
             }
         });
         getContentPane().add(registerButt, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 520, 90, 40));
-
-        inpPass.setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().add(inpPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 382, 220, 30));
 
         loginButt.setBackground(new java.awt.Color(0, 153, 204));
@@ -104,8 +94,7 @@ public class LandingPage extends javax.swing.JFrame {
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gambar/LandingPage.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1200, 680));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1190, 680));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -172,7 +161,6 @@ public class LandingPage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField inpPass;
     private javax.swing.JTextField inpUser;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;

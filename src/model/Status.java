@@ -12,16 +12,16 @@ public class Status {
     private String nama,status,estimate;
     private int no,jumlahAtasan,jumlahBawahan;
 
-    public Status(int no,String nama,int jumlahAtasan, int jumlahBawahan, String status, String estimate  ) {
+    public Status(int no, String nama, int jumlahAtasan, int jumlahBawahan, String status, String estimate  ) {
         this.no = no;
         this.nama = nama;        
         this.jumlahAtasan = jumlahAtasan;
         this.jumlahBawahan = jumlahBawahan;
-        this.status = status;
+        this.status = "Lunas";
         this.estimate = estimate;
     }
     
-    public Status(int no,String nama,int jumlahAtasan, int jumlahBawahan, String estimate  ) {
+    public Status(int no, String nama,int jumlahAtasan, int jumlahBawahan, String estimate  ) {
         this.no = no;
         this.nama = nama;        
         this.jumlahAtasan = jumlahAtasan;

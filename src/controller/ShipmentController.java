@@ -48,6 +48,39 @@ public class ShipmentController {
         // mengembalikan nilai data untuk dirubah ke database mysql
         return rowAffected == 1;
     }
-    
-    
+
+    public ArrayList<Shipment> tampilDataStatus() throws SQLException {
+        ArrayList<Shipment> tampilStatus = new ArrayList<>();
+
+        // membuka koneksi
+        con = koneksi.getConnection();
+
+        // membuat query untuk lihat biodata
+        String kueri = "SELECT * from shipments";;
+        PreparedStatement ps = con.prepareStatement(kueri);
+
+        // mengeksekusi query
+        ResultSet rs = ps.executeQuery();
+
+        // melakukan perulangan untuk menampilkan seluruh data yang ada di tabel status
+        while (rs.next()) {
+            int id = rs.getInt("id");
+            int nama = rs.getInt("order_id");
+            String jumlahAtasan = rs.getString("alamat");
+            String jumlahBawahan = rs.getString("region");
+            String estimate = rs.getString("estimate");
+
+            Shipment ship = new Shipment(id, nama, jumlahAtasan, jumlahBawahan, estimate);
+            tampilStatus.add(ship);
+        }
+
+        // menutup result set, preparedstatement dan koneksi
+        rs.close();
+        ps.close();
+        con.close();
+
+        // mengembalikan nilai
+        return tampilStatus;
+    }
+
 }

@@ -38,6 +38,7 @@ public class Dashboard extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
         btnPesan = new javax.swing.JButton();
         btnStatus = new javax.swing.JButton();
         btnKeranjang = new javax.swing.JButton();
@@ -60,6 +61,17 @@ public class Dashboard extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jButton1.setBackground(new java.awt.Color(204, 204, 204));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 102, 0));
+        jButton1.setText("LOG OUT");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 80, 170, 70));
 
         btnPesan.setBackground(new java.awt.Color(204, 204, 204));
         btnPesan.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -136,6 +148,13 @@ public class Dashboard extends javax.swing.JFrame {
        this.dispose();
     }//GEN-LAST:event_btnKeranjangActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        LandingPage lp = new LandingPage();
+        lp.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -176,6 +195,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JButton btnPesan;
     private javax.swing.JButton btnProfile;
     private javax.swing.JButton btnStatus;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

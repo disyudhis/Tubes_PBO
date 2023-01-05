@@ -14,8 +14,9 @@ import java.sql.SQLException;
  * @author A S U S
  */
 public class koneksiController {
+
     static MysqlDataSource ds = new MysqlDataSource();
-    
+
     public static Connection getConnection() {
         Connection koneksi = null;
 
@@ -27,7 +28,7 @@ public class koneksiController {
             ds.setUrl(DB_NAME);
             ds.setUser(DB_USER);
             ds.setPassword(DB_PASS);
-            
+
 //            Class.forName("com.mysql.jdbc.Driver");
             koneksi = ds.getConnection();
         } catch (SQLException ex) {

@@ -21,7 +21,7 @@ import model.Order;
  */
 public class Pembayaran extends javax.swing.JFrame {
     // Deklarasi & instansiasi
-    
+
     private final DefaultTableModel model = new DefaultTableModel();
     private OrderController order = new OrderController();
 
@@ -51,6 +51,7 @@ public class Pembayaran extends javax.swing.JFrame {
 
         tableOrder.setModel(model);
         btnHapus.setEnabled(false);
+        btnBayar.setEnabled(false);
 
         populateTable();
     }
@@ -212,6 +213,7 @@ public class Pembayaran extends javax.swing.JFrame {
         btTambah.setText("Ubah");
         btnHapus.setEnabled(true);
         btnBayar.setText("Bayar Sekarang!");
+        btnBayar.setEnabled(true);
     }//GEN-LAST:event_tableOrderMouseClicked
 
     private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
@@ -287,7 +289,7 @@ public class Pembayaran extends javax.swing.JFrame {
         if (btnBayar.getText().equals("Bayar Sekarang!")) {
             int selectedRow = tableOrder.getSelectedRow();
             String orderId = model.getValueAt(selectedRow, 0).toString();
-            
+
             Pengiriman pengiriman = null;
             try {
                 pengiriman = new Pengiriman();
@@ -295,7 +297,7 @@ public class Pembayaran extends javax.swing.JFrame {
                 Logger.getLogger(Pembayaran.class.getName()).log(Level.SEVERE, null, ex);
             }
             pengiriman.setId(Integer.parseInt(orderId));
-            
+
             pengiriman.setVisible(true);
             this.dispose();
 
