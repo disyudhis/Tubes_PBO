@@ -12,22 +12,22 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import model.Shipment;
+import model.Status;
 
 /**
  *
  * @author yudhi
  */
-public class Status extends javax.swing.JFrame {
+public class Stats extends javax.swing.JFrame {
 
     private final DefaultTableModel model = new DefaultTableModel();
-//    private StatusController status = new StatusController();
-    private ShipmentController shipment = new ShipmentController();
+    private StatusController status = new StatusController();
+//    private ShipmentController shipment = new ShipmentController();
 
     /**
      * Creates new form Status
      */
-    public Status() {
+    public Stats() {
         initComponents();
 
         Dimension layar = Toolkit.getDefaultToolkit().getScreenSize();
@@ -40,10 +40,11 @@ public class Status extends javax.swing.JFrame {
 
         //tabel
         model.addColumn("No");
-        model.addColumn("Id Pesanan");
+        model.addColumn("Nama");
         model.addColumn("Alamat");
         model.addColumn("Daerah");
         model.addColumn("Estimasi");
+        model.addColumn("Status");
 
         tableStatus.setModel(model);
 
@@ -54,9 +55,9 @@ public class Status extends javax.swing.JFrame {
     private void populateTable() {
         model.setRowCount(0);
         try {
-            ArrayList<Shipment> lihat = shipment.tampilDataStatus();
-            for (Shipment s : lihat) {
-                Object[] isiData = {s.getId(), s.getOrder_id(), s.getAlamat(), s.getRegion(), s.getEstimate()};
+            ArrayList<Status> lihat = status.tampilDataStatus();
+            for (Status s : lihat) {
+                Object[] isiData = {s.getNo(), s.getNama(), s.getAlamat(), s.getRegion(), s.getEstimate(), s.getStatus()};
                 model.addRow(isiData);
             }
         } catch (SQLException ex) {
@@ -98,7 +99,7 @@ public class Status extends javax.swing.JFrame {
 
             },
             new String [] {
-                "No", "Id Pesanan", "Alamat", "Region", "Estimate"
+                "No", "Nama", "Alamat", "Daerah", "Estimate", "Status"
             }
         ));
         jScrollPane1.setViewportView(tableStatus);
@@ -165,20 +166,21 @@ public class Status extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Status.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Stats.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Status.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Stats.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Status.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Stats.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Status.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Stats.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Status().setVisible(true);
+                new Stats().setVisible(true);
 
             }
         });

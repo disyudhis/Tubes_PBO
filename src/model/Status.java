@@ -9,40 +9,47 @@ package model;
  * @author AHAN
  */
 public class Status {
-    private String nama,status,estimate;
-    private int no,jumlahAtasan,jumlahBawahan;
 
-    public Status(int no, String nama, int jumlahAtasan, int jumlahBawahan, String status, String estimate  ) {
+    private String nama, alamat, region, estimate, status;
+    private int no;
+    
+    
+
+    public Status(int no, String nama, String alamat, String region, String estimate, String status) {
         this.no = no;
-        this.nama = nama;        
-        this.jumlahAtasan = jumlahAtasan;
-        this.jumlahBawahan = jumlahBawahan;
-        this.status = "Lunas";
+        this.nama = nama;
+        this.alamat = alamat;
+        this.region = region;
         this.estimate = estimate;
+        this.status = status;
+
     }
     
-    public Status(int no, String nama,int jumlahAtasan, int jumlahBawahan, String estimate  ) {
-        this.no = no;
-        this.nama = nama;        
-        this.jumlahAtasan = jumlahAtasan;
-        this.jumlahBawahan = jumlahBawahan;
-        this.estimate = estimate;
-    }
-
+    
     public String getNama() {
         return nama;
     }
+
+    
 
     public void setNama(String nama) {
         this.nama = nama;
     }
 
-    public String getStatus() {
-        return status;
+    public String getAlamat() {
+        return alamat;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setAlamat(String alamat) {
+        this.alamat = alamat;
+    }
+
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
     }
 
     public String getEstimate() {
@@ -53,6 +60,14 @@ public class Status {
         this.estimate = estimate;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public int getNo() {
         return no;
     }
@@ -61,23 +76,4 @@ public class Status {
         this.no = no;
     }
 
-    public int getJumlahAtasan() {
-        return jumlahAtasan;
-    }
-
-    public void setJumlahAtasan(int jumlahAtasan) {
-        this.jumlahAtasan = jumlahAtasan;
-    }
-
-    public int getJumlahBawahan() {
-        return jumlahBawahan;
-    }
-
-    public void setJumlahBawahan(int jumlahBawahan) {
-        this.jumlahBawahan = jumlahBawahan;
-    }
-    
-    
-    
-    
 }

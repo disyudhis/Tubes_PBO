@@ -172,6 +172,7 @@ public class Register extends javax.swing.JFrame {
 
                 try {
                     if (uc.tambahData(user)) {
+                        
                         JOptionPane.showMessageDialog(this, "Berhasil Tambah Data");
                         Dashboard dashboard = new Dashboard();
                         dashboard.setVisible(true);

@@ -10,18 +10,19 @@ package model;
  */
 public class Order {
 
-    private String nama, pewangi;
+    private String nama, pewangi,estimasi;
     private int jumlahAtasan, jumlahBawahan, total, id;
 
-    public Order(String nama, String pewangi, int jumlahAtasan, int jumlahBawahan, int total) {
+    public Order(String nama, String pewangi, int jumlahAtasan, int jumlahBawahan, int total, String estimasi) {
         this.nama = nama;
         this.pewangi = pewangi;
         this.jumlahAtasan = jumlahAtasan;
         this.jumlahBawahan = jumlahBawahan;
         this.total = total;
+        this.estimasi = estimasi;
     }
 
-    public Order(int id, String nama, String pewangi, int jumlahAtasan, int jumlahBawahan, int total) {
+    public Order(int id,String nama, String pewangi, int jumlahAtasan, int jumlahBawahan, int total) {
         this.id = id;
         this.nama = nama;
         this.pewangi = pewangi;
@@ -29,6 +30,14 @@ public class Order {
         this.jumlahBawahan = jumlahBawahan;
         this.total = total;
 
+    }
+
+    public String getEstimasi() {
+        return estimasi;
+    }
+
+    public void setEstimasi(String estimasi) {
+        this.estimasi = estimasi;
     }
 
     public int getId() {

@@ -131,7 +131,7 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPesanActionPerformed
 
     private void btnStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStatusActionPerformed
-       Status status = new Status();
+       Stats status = new Stats();
        status.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_btnStatusActionPerformed

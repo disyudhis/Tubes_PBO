@@ -5,6 +5,7 @@
 package View;
 
 import controller.OrderController;
+import controller.StatusController;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.sql.SQLException;
@@ -14,6 +15,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Order;
+import model.Status;
 
 /**
  *
@@ -289,7 +291,7 @@ public class Pembayaran extends javax.swing.JFrame {
         if (btnBayar.getText().equals("Bayar Sekarang!")) {
             int selectedRow = tableOrder.getSelectedRow();
             String orderId = model.getValueAt(selectedRow, 0).toString();
-
+            String nama = model.getValueAt(selectedRow,1).toString();
             Pengiriman pengiriman = null;
             try {
                 pengiriman = new Pengiriman();
@@ -297,7 +299,7 @@ public class Pembayaran extends javax.swing.JFrame {
                 Logger.getLogger(Pembayaran.class.getName()).log(Level.SEVERE, null, ex);
             }
             pengiriman.setId(Integer.parseInt(orderId));
-
+            pengiriman.setNama(nama);
             pengiriman.setVisible(true);
             this.dispose();
 

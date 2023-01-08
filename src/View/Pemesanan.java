@@ -5,6 +5,7 @@
 package View;
 
 import controller.OrderController;
+import controller.StatusController;
 import controller.koneksiController;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -12,8 +13,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.Order;
+import model.Status;
 
 /**
  *
@@ -23,6 +27,7 @@ public class Pemesanan extends javax.swing.JFrame {
 
     private OrderController order = new OrderController();
     private final koneksiController koneksi = new koneksiController();
+    private StatusController sc = new StatusController();
     private Connection con;
 
     /**
@@ -221,6 +226,7 @@ public class Pemesanan extends javax.swing.JFrame {
         int bawahan = Integer.parseInt(inpBawahan.getText());
         String pewangi = cbPewangi.getSelectedItem().toString();
         int biaya = 0;
+        String estimasi = "anjay";
 
         if (cbPewangi.getSelectedItem() == "Pilihan") {
             biaya = 0;
@@ -236,8 +242,9 @@ public class Pemesanan extends javax.swing.JFrame {
             totalbyr.setText(String.valueOf(biaya));
         }
 
-        Order o = new Order(customer, pewangi, atasan, bawahan, biaya);
+        Order o = new Order(customer, pewangi, atasan, bawahan, biaya,estimasi);
 
+    
         if (customer.equals("")) {
             JOptionPane.showMessageDialog(null, "Masukan nama!");
         } else if (String.valueOf(atasan).equals("") || String.valueOf(atasan).equals(0)) {

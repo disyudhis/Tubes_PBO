@@ -6,6 +6,7 @@ package View;
 
 import controller.OrderController;
 import controller.ShipmentController;
+import controller.StatusController;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.sql.SQLException;
@@ -14,6 +15,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.Order;
 import model.Shipment;
+import model.Status;
 
 /**
  *
@@ -21,14 +23,28 @@ import model.Shipment;
  */
 public class Pengiriman extends javax.swing.JFrame {
     ShipmentController ship = new ShipmentController();
+    StatusController sc = new StatusController();
     /**
      * Creates new form Pengiriman
      */
     
     int id;
-    public Pengiriman(int id) {
+    String nama;
+    String status = "Sedang Dikerjakan";
+    public Pengiriman(int id, String nama) {
         this.id = id;
+        this.nama = nama;
     }
+
+    public String getNama() {
+        return nama;
+    }
+
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+    
+    
 
     public int getId() {
         return id;
@@ -144,6 +160,7 @@ public class Pengiriman extends javax.swing.JFrame {
         String alamat = inpAlamat.getText();
 
         Shipment s = new Shipment(id, alamat, outlet, estimasi);
+        Status stat = new Status(id,nama,alamat,outlet,estimasi,status);
 
         if (cbOutlet.equals("Pilihan")) {
             JOptionPane.showMessageDialog(null, "Masukan nama!");
@@ -153,9 +170,9 @@ public class Pengiriman extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Masukkan Estimasi");
         } else {
             try {
-                if (ship.tambahShipment(s)) {
+                if (ship.tambahShipment(s) && sc.tambahStatus(stat)) {
                     JOptionPane.showMessageDialog(this, "Tambah Data Berhasil");
-                    Status status = new Status();
+                    Stats status = new Stats();
                     status.setVisible(true);
                     this.dispose();
                 } else {
