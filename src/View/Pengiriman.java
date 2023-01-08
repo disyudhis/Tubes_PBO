@@ -100,6 +100,7 @@ public class Pengiriman extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         cbEstimasi = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -117,7 +118,7 @@ public class Pengiriman extends javax.swing.JFrame {
         getContentPane().add(cbOutlet, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 130, 374, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel3.setText("Alamat");
+        jLabel3.setText("Keterangan Alamat");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 173, -1));
 
         inpAlamat.setColumns(20);
@@ -145,6 +146,14 @@ public class Pengiriman extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 420, 149, 37));
+
+        jButton2.setText("Back");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 110, 40));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gambar/LEAVE CLEANING (18).png"))); // NOI18N
         jLabel6.setText("jLabel6");
@@ -188,6 +197,13 @@ public class Pengiriman extends javax.swing.JFrame {
     private void cbEstimasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEstimasiActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbEstimasiActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        Pembayaran b = new Pembayaran();
+        b.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -233,6 +249,7 @@ public class Pengiriman extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbOutlet;
     private javax.swing.JTextArea inpAlamat;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

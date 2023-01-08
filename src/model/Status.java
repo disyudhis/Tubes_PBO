@@ -24,6 +24,17 @@ public class Status {
         this.status = status;
 
     }
+
+    public Status(String nama, String alamat, String region, String estimate, String status) {
+        this.nama = nama;
+        this.alamat = alamat;
+        this.region = region;
+        this.estimate = estimate;
+        this.status = status;
+    }
+    
+    
+    
     
     
     public String getNama() {

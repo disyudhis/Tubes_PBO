@@ -81,6 +81,7 @@ public class Stats extends javax.swing.JFrame {
         tableStatus = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        btnUbahStatus = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         jLabel3.setText("jLabel3");
@@ -128,6 +129,14 @@ public class Stats extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 580, 100, 40));
 
+        btnUbahStatus.setText("Ubah Status");
+        btnUbahStatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUbahStatusActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnUbahStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 120, -1, -1));
+
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gambar/status2.png"))); // NOI18N
         jLabel2.setText("jLabel2");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1200, 680));
@@ -148,6 +157,42 @@ public class Stats extends javax.swing.JFrame {
         dashboard.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void btnUbahStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahStatusActionPerformed
+        if (btnUbahStatus.getText().equals("Ubah Status")) {
+            int selectedRow = tableStatus.getSelectedRow();
+
+//            String id = model.getValueAt(selectedRow, 0).toString();
+            String no = model.getValueAt(selectedRow, 0).toString();
+            EdtStatus edt = new EdtStatus();
+            edt.setNo(Integer.parseInt(no));
+            
+            String nama = model.getValueAt(selectedRow, 1).toString();
+            String alamat = model.getValueAt(selectedRow, 2).toString();
+            String daerah = model.getValueAt(selectedRow, 3).toString();
+            String estimate = model.getValueAt(selectedRow, 4).toString();
+            String status = model.getValueAt(selectedRow, 5).toString();
+
+            EdtStatus edit = new EdtStatus();
+            edit.setVisible(true);
+
+            edit.fieldNama.setEnabled(false);
+            edit.fieldAlamat.setEnabled(false);
+            edit.fieldDaerah.setEnabled(false);
+            edit.fieldEstimate.setEnabled(false);
+            edit.fieldNama.setText(nama);
+            edit.fieldAlamat.setText(alamat);
+            edit.fieldDaerah.setText(daerah);
+            edit.fieldEstimate.setText(estimate);
+            edit.cbStatus.setSelectedItem(status);
+
+            //barber & totalbayar
+            edit.btnUbah.setText("Ubah");
+
+            this.dispose();
+
+        }
+    }//GEN-LAST:event_btnUbahStatusActionPerformed
 
     /**
      * @param args the command line arguments
@@ -187,6 +232,7 @@ public class Stats extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnUbahStatus;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;

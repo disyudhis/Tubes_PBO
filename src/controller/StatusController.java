@@ -84,4 +84,31 @@ public class StatusController {
         // mengembalikan nilai
         return tampilStatus;
     }
+    
+    //    ubah data pesanan
+    public boolean ubahStatus(Status status) throws SQLException {
+
+        // membuka koneksi ke database
+        con = koneksi.getConnection();
+
+        // Menyiapkan database / memanipulasi data untuk dikiirm kedatabase untuk dieksekusi
+        String kueri = "UPDATE Status SET status=? WHERE nama=?";
+        PreparedStatement ps = con.prepareStatement(kueri);
+//        ps.setString(1, status.getNama());
+//        ps.setString(2, status.getAlamat());
+//        ps.setString(3, status.getRegion());
+//        ps.setString(4, status.getEstimate());
+        ps.setString(1, status.getStatus());
+        ps.setString(2, status.getNama());
+        
+        // mengeksekusi query
+        int rowAffected = ps.executeUpdate();
+
+        // menutup preparedstatement & koneksi
+        ps.close();
+        con.close();
+
+        // mengembalikan nilai data untuk dirubah ke database mysql
+        return rowAffected == 1;
+    }
 }
